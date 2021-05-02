@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrate - UHospital</title>
+    <link rel="stylesheet" href="assets/css/bootstrap.css">
+    
+    <link rel="shortcut icon" href="assets/images/logoUSACcolor.png" type="image/x-icon">
+    <link rel="stylesheet" href="assets/css/app.css">
+</head>
+
+<body>
+    <div id="auth">
+        
+<div class="container">
+    <div class="row">
+        <div class="col-md-7 col-sm-12 mx-auto">
+            <div class="card pt-4">
+                <div class="card-body">
+                    <div class="text-center mb-5">
+                        <img src="assets/images/logoUSAC.png" height="65" class='mb-4'>
+                        <h3>Crear cuenta</h3>
+                        <p>Por favor llene el siguiente formulario</p>
+                    </div>
+                    <form>
+                        <div class="row">
+                            <div class="col-md-6 col-12">
+                                <div class="form-group">
+                                    <label for="first-name-column">Nombre</label>
+                                    <input type="text" id="first-name-column" class="form-control"  name="fname-column" required = "required">
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-12">
+                                <div class="form-group">
+                                    <label for="last-name-column">Apellido</label>
+                                    <input type="text" id="last-name-column" class="form-control"  name="lname-column" required = "required">
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-12">
+                                <div class="form-group">
+                                    <label for="username-column">Usuario</label>
+                                    <input type="text" id="username-column" class="form-control" name="username-column" required = "required">
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-12">
+                                <div class="form-group">
+                                    <label for="date">Fecha de nacimiento</label>
+                                    <input type="date" id="date" class="form-control" name="country-floating" required = "required">
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-12">
+                                <div class="form-group">
+                                    <label for="password-column">Contraseña<a href=""></a></label>
+                                    <input type="password" id="password-column" class="form-control" name="company-column" required = "required">
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-12">
+                                <div class="form-group">
+                                    <label for="genero">Género</label>
+                                    <input type="text" id="genero" class="form-control" name="email-id-column" required = "required">
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-12">
+                                <div class="form-group">
+                                    <label for="phone-column">Teléfono<a href=""></a></label>
+                                    <input type="text" id="phone-column" class="form-control" name="company-column">
+                                </div>
+                            </div>
+                        </diV>
+
+                                <a href="auth-login.html">Ya tienes una cuenta? Iniciar sesión</a>
+                        <div class="clearfix">
+                            <button class="btn btn-primary float-right" onclick="registroPaciente(event)">Crear</button>
+                        </div>
+                    </form>
+                    <div class="divider">
+                        <div class="divider-text">También puedes intentar</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <button class="btn btn-block mb-2 btn-primary"><i data-feather="facebook"></i> Facebook</button>
+                        </div>
+                        <div class="col-sm-6">
+                            <button class="btn btn-block mb-2 btn-secondary"><i data-feather="github"></i> Github</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    </div>
+    <script src="assets/js/feather-icons/feather.min.js"></script>
+    <script src="assets/js/app.js"></script>
+    <script src="./Functions/methods.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>

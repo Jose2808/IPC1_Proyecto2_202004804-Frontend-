@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comprar medicina - UHospital</title>
+    
+    <link rel="stylesheet" href="assets/css/bootstrap.css">
+    
+    <link rel="stylesheet" href="assets/vendors/perfect-scrollbar/perfect-scrollbar.css">
+    <link rel="stylesheet" href="assets/css/app.css">
+    <link rel="shortcut icon" href="assets/images/logoUSACcolor.png" type="image/x-icon">
+</head>
+<body>
+    <div id="app">
+        <div id="sidebar" class='active'>
+            <div class="sidebar-wrapper active">
+    <div class="sidebar-header">
+        <img src="assets/images/logoUSAC.png" alt="" srcset="">
+    </div>
+    <div class="sidebar-menu">
+        <ul class="menu">
+            
+                <li class='sidebar-title'>Menu principal</li>
+                    
+                <li class="sidebar-item ">
+                    <a href="citasPatient.html" class='sidebar-link'>
+                        <i data-feather="layout" width="20"></i> 
+                        <span>Mis citas</span>
+                    </a>
+                    
+                </li>
+
+            
+            
+            
+                <li class="sidebar-item  ">
+                    <a href="citasPatient.html" class='sidebar-link'>
+                        <i data-feather="layers" width="20"></i> 
+                        <span>Nueva cita </span>
+                    </a>
+                    
+                </li>
+
+            
+            
+            
+                <li class="sidebar-item active ">
+                    <a href="comprarMedicamentos.html" class='sidebar-link'>
+                        <i data-feather="grid" width="20"></i> 
+                        <span>Comprar medicina</span>
+                    </a>
+                    
+                </li>
+
+                <li class='sidebar-title'>Pages</li>
+            
+            
+            
+                <li class="sidebar-item  has-sub">
+                    <a href="#" class='sidebar-link'>
+                        <i data-feather="user" width="20"></i> 
+                        <span>Authentication</span>
+                    </a>
+                    
+                    <ul class="submenu ">
+                        
+                        <li>
+                            <a href="auth-login.html">Login</a>
+                        </li>
+                        
+                        <li>
+                            <a href="auth-register.html">Register</a>
+                        </li>
+                        
+                        <li>
+                            <a href="auth-forgot-password.html">Forgot Password</a>
+                        </li>
+                        
+                    </ul>
+                    
+                </li>
+
+            
+            
+            
+                <li class="sidebar-item  has-sub">
+                    <a href="#" class='sidebar-link'>
+                        <i data-feather="alert-circle" width="20"></i> 
+                        <span>Errors</span>
+                    </a>
+                    
+                    <ul class="submenu ">
+                        
+                        <li>
+                            <a href="error-403.html">403</a>
+                        </li>
+                        
+                        <li>
+                            <a href="error-404.html">404</a>
+                        </li>
+                        
+                        <li>
+                            <a href="error-500.html">500</a>
+                        </li>
+                        
+                    </ul>
+                    
+                </li>
+
+            
+            
+         
+        </ul>
+    </div>
+    <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
+</div>
+        </div>
+        <div id="main">
+            <nav class="navbar navbar-header navbar-expand navbar-light">
+                <a class="sidebar-toggler" href="#"><span class="navbar-toggler-icon"></span></a>
+                <button class="btn navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav d-flex align-items-center navbar-light ml-auto">
+                        <li class="dropdown nav-icon">
+                            <a href="#" data-toggle="dropdown" class="nav-link  dropdown-toggle nav-link-lg nav-link-user">
+                                <div class="d-lg-inline-block">
+                                    <i data-feather="bell"></i>
+                                </div>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right dropdown-menu-large">
+                                <h6 class='py-2 px-4'>Notifications</h6>
+                                <ul class="list-group rounded-none">
+                                    <li class="list-group-item border-0 align-items-start">
+                                        <div class="avatar bg-success mr-3">
+                                            <span class="avatar-content"><i data-feather="shopping-cart"></i></span>
+                                        </div>
+                                        <div>
+                                            <h6 class='text-bold'>New Order</h6>
+                                            <p class='text-xs'>
+                                                An order made by Ahmad Saugi for product Samsung Galaxy S69
+                                            </p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="dropdown nav-icon mr-2">
+                            <a href="#" data-toggle="dropdown" class="nav-link  dropdown-toggle nav-link-lg nav-link-user">
+                                <div class="d-lg-inline-block">
+                                    <i data-feather="mail"></i>
+                                </div>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <a class="dropdown-item" href="#"><i data-feather="user"></i> Account</a>
+                                <a class="dropdown-item active" href="#"><i data-feather="mail"></i> Messages</a>
+                                <a class="dropdown-item" href="#"><i data-feather="settings"></i> Settings</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#"><i data-feather="log-out"></i> Logout</a>
+                            </div>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
+                                <div class="avatar mr-1">
+                                    <img src="assets/images/avatar/avatar-s-1.png" alt="" srcset="">
+                                </div>
+                                <div class="d-none d-md-block d-lg-inline-block">Hola, usuario</div>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <a class="dropdown-item" href="#"><i data-feather="user"></i> Mi cuenta</a>
+                                <a class="dropdown-item" href="#"><i data-feather="mail"></i> Mensajes</a>
+                                <a class="dropdown-item" href="#"  data-toggle="modal" data-target="#account" onclick = "buscarUsuarioLog()"><i data-feather="settings"></i> Ajustes</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="auth-login.html"><i data-feather="log-out"></i> Cerrar sesión</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+<div class="main-content container-fluid">
+    <div class="page-title">
+        <div class="row">
+            <div class="col-12 col-md-6 order-md-1 order-last">
+                <h3>Compra actual</h3>
+            </div>
+            <div class="col-12 col-md-6 order-md-2 order-first">
+                <nav aria-label="breadcrumb" class='breadcrumb-header'>
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="AdminModule.html">Menu principal</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Comprar medicina</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row" id="table-hover-row">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-content">
+              <!-- table hover -->
+              <div class="table-responsive">
+                <table class="table mb-0">
+                  <thead>
+                    <tr>
+                      <th>NOMBRE</th>
+                      <th>DESCRIPCION</th>
+                      <th>CANTIDAD</th>
+                      <th>PRECIO TOTAL(Q)</th>
+                      <th>REMOVER</th>
+                    </tr>
+                  </thead>
+                  <tbody id ="compra">
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div style = "text-align: right;">
+        <button type = "button"  href="#" class="btn btn-dark" onclick = "obtenerCompra()">Hacer pedido</button>
+        <button type = "button"  id = "generarCom" href="#" class="btn btn-dark" onclick = "generarComprobante()" disabled="true" >Generar comprobante</button>  
+     </div>
+    
+      <div class="col-12 col-md-6 order-md-1 order-last">
+        <h3>Productos en existencia</h3>
+    </div>
+
+
+      <div class="table-responsive">
+        <table class="table table-borderless mb-0">
+          <thead>
+            <tr>
+              <th>NOMBRE</th>
+              <th>DESCRIPCION</th>
+              <th>PRECIO(Q)</th>
+              <th>CANTIDAD A COMPRAR</th>
+              <th>AGREGAR AL CARRITO</th>
+            </tr>
+          </thead>
+          <tbody id = "medicinas">
+            <tr>
+              <td class="text-bold-500">Michael Right</td>
+              <td>$15/hr</td>
+              <td class="text-bold-500">UI/UX</td>
+              <td>Remote</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+            <footer>
+                <div class="footer clearfix mb-0 text-muted">
+                    <div class="float-left">
+                        <p>2021 &copy; Universidad de San Carlos de Guatemala</p>
+                    </div>
+                    <div class="float-right">
+                        <p>Crafted with <span class='text-danger'><i data-feather="heart"></i></span> by <a href="http://ahmadsaugi.com">Ahmad Saugi</a></p>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+ <!-------------------------------- Ajustes de la cuenta --------------------------->
+ <div class="modal fade text-left" id="account" tabindex="-1" role="dialog"
+ aria-labelledby="myModalLabel33" aria-hidden="true">
+ <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
+ <div class="modal-content">
+     <div class="modal-header">
+     <h4 class="modal-title" id="myModalLabel33">Información de la cuenta </h4>
+     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+         <i data-feather="x"></i>
+     </button>
+     </div>
+     <form action="#">
+     <div class="modal-body">
+         <label>Usuario </label>
+         <div class="form-group">
+         <input type="text"  class="form-control" id ="myUser">
+         </div>
+         <label>Contraseña </label>
+         <div class="form-group">
+         <input type="text" class="form-control" id ="myPassword">
+         </div>
+         <label>Nombre </label>
+         <div class="form-group">
+         <input type="text" class="form-control" id ="myName">
+         </div>
+         <label>Apellido </label>
+         <div class="form-group">
+         <input type="text" class="form-control" id ="mySurname">
+         </div>
+         <label>Fecha de nacimiento </label>
+         <div class="form-group">
+         <input type="text" class="form-control" id ="myBirth">
+         </div>
+         <label>Género </label>
+         <div class="form-group">
+         <input type="text" class="form-control" id ="myGenre">
+         </div>
+         <label>Teléfono </label>
+         <div class="form-group">
+         <input type="text" class="form-control" id ="myPhone">
+         </div>
+     </div>
+     <div class="modal-footer">
+         <button type="button" class="btn btn-light-secondary" data-dismiss="modal">
+         <i class="bx bx-x d-block d-sm-none"></i>
+         <span class="d-none d-sm-block">Cerrar</span>
+         </button>
+         <button type="button" class="btn btn-primary ml-1" data-dismiss="modal"  onclick ="modificarUsuarioLog()">
+         <i class="bx bx-check d-block d-sm-none"></i>
+         <span class="d-none d-sm-block">Guardar cambios</span>
+         </button>
+     </div>
+     </form>
+ </div>
+ </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+    <script src="assets/js/feather-icons/feather.min.js"></script>
+    <script src="assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+    <script src="assets/js/app.js"></script>
+    <script src="Functions/methods.js"></script>
+    <script src="Functions/cargaPacientes.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.js"></script>
+    <script src="Functions/methodsPatient.js"></script>
+    <script>
+        window.onload = obtenerMedicamentos();
+    </script>
+</body>
+</html>
