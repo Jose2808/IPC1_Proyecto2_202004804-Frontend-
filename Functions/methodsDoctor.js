@@ -159,7 +159,7 @@ function completarCita(checkbox){
     idCita: idcita,
     user: doctor
   }
-  fetch("http://localhost:3000/cita/completar",{
+  fetch("https://backend-ipc1-202004804.herokuapp.com/cita/completar",{
         method: 'POST',
         body: JSON.stringify(objeto),
         headers:{
