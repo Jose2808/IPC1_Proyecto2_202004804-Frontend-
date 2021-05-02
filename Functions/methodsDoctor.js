@@ -97,8 +97,15 @@ function citasAceptadas(){
         <td class="text-bold-500">${response[i].date}</td>
         <td>${response[i].hour}</td>
         <td class="text-bold-500">${response[i].motive}</td>
-        <td><input type="checkbox" class='form-check-input' id="checkbox2"></td>
-      </tr>`
+         ` 
+        if(response[i].state == "Completada"){
+          cadena+= `<td><input type="checkbox" class='form-check-input' checked = true disabled = true></td></tr>`
+        }
+        else{
+          cadena +=`<td><input type="checkbox" class='form-check-input' id= ${response[i].id} onclick = "completarCita(this)"></td>
+          `
+        }
+         
       }
       tabla.innerHTML = cadena
   })
@@ -144,5 +151,30 @@ function procesarReceta(){
 }
 function generarRecetapdf(){
   html2pdf().from(documentoReceta).toPdf().save("receta.pdf");
+}
+function completarCita(checkbox){
+  var idcita = checkbox.id
+  var doctor = sessionStorage.getItem("Usuario")
+  objeto = {
+    idCita: idcita,
+    user: doctor
+  }
+  fetch("http://localhost:3000/cita/completar",{
+        method: 'POST',
+        body: JSON.stringify(objeto),
+        headers:{
+          'content-type':'application/json',
+          'Access-Control-Allow-Origin':'*',  }})
+        .then(res => res.json())
+        .catch(err => {
+          console.error('Error', err)
+          alert("Ocurrió un error, ver la consola")
+        })
+        .then(response => {
+          console.log(response)
+          alert(response.Mensaje)
+          window.citasAceptadas()
+        })
+
 }
 
