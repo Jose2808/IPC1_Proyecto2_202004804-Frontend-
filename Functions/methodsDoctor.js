@@ -129,7 +129,7 @@ function procesarReceta(){
     <h2>Receta médica</h2>
     <h3>Fecha:</h3><h4> ${fecha}</h4>
     <h3>Nombre del paciente:</h3> <h4>${paciente}</h4>
-    <h3>Padecimiento:</h3> <h4>${padecimiento}</h4>
+    <h3>Padecimiento:</h3> <h4>${illness}</h4>
     <h3>Descripción:</h3> <h4>${descripcion}</h4>
     
     `
