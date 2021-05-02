@@ -126,12 +126,42 @@ function procesarReceta(){
       descripcion: descripcion
     }
     documentoReceta = `
-    <h2>Receta médica</h2>
-    <h3>Fecha:</h3><h4> ${fecha}</h4>
-    <h3>Nombre del paciente:</h3> <h4>${paciente}</h4>
-    <h3>Padecimiento:</h3> <h4>${illness}</h4>
-    <h3>Descripción:</h3> <h4>${descripcion}</h4>
-    
+    <section id="basic-vertical-layouts">
+        <div class="row match-height">
+            <div class="col-md-6 col-12">
+            <div class="card">
+                <div class="card-content">
+                <div class="card-body">
+                  <h4 class="card-title">Fecha de creación: ${new Date().toLocaleDateString("es-US")}</h4>
+                  <h3>Receta médica</h3>
+                    <form class="form form-vertical">
+                    <div class="form-body">
+                        <div class="row">
+                        <div class="col-12">
+                            <div class="form-group">
+                            <label for="first-name-vertical">Paciente</label>
+                            <input type="text"  class="form-control" name="fname" value = ${paciente}>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-group">
+                            <label for="contact-info-vertical">Padecimiento</label>
+                            <input type="text" class="form-control" name="contact" value=${illness}>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-group">
+                            <label for="password-vertical">Descripcion</label>
+                            <input type="text" class="form-control" name="contact" value =${descripcion}>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                    </form>
+                </div>
+                </div>
+            </div>
+            </div>
     `
     fetch("https://backend-ipc1-202004804.herokuapp.com/Guardar/Receta",{
         method: 'POST',
