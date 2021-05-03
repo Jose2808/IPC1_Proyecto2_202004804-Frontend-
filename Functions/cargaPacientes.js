@@ -23,8 +23,8 @@ function obtenerPacientes(){
         <td class="text-bold-500">${response[i].nombre}</td>
         <td>${response[i].apellido}</td>
         <td class="text-bold-500">${response[i].user}</td>
-        <td><button value = ${response[i].user} type="button" data-toggle="modal" data-target="#inlineForm"  onclick = "buscarUsuario(this)" class="btn btn-outline-primary"> Ver perfil </button> </td>
-        <td><button value = ${response[i].user} onclick = "eliminarUsuario(this)" type = "button" class="btn btn-outline-primary"> Eliminar </button> </td>
+        <td><button value = "${response[i].user}" type="button" data-toggle="modal" data-target="#inlineForm"  onclick = "buscarUsuario(this)" class="btn btn-outline-primary"> Ver perfil </button> </td>
+        <td><button value = "${response[i].user}" onclick = "eliminarUsuario(this)" type = "button" class="btn btn-outline-primary"> Eliminar </button> </td>
       </tr>`
       }
       tabla.innerHTML = cadena
