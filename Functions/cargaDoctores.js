@@ -1,5 +1,5 @@
 let listadoDoctores = ""
-
+let topDoctores = ""
 function obtenerDoctores(){
     var index = 1
     var tabla = document.getElementById('listaDoctores')
@@ -220,5 +220,106 @@ function procesarDoctores(texto){
 
 function reporteDoctores(){
   html2pdf().from(listadoDoctores).toPdf().save("reporte_doctores.pdf");
+}
+
+function topMedicos(){
+  var index = 1
+  fetch(`http://localhost:3000/top-doctores`,{
+    method: 'GET',
+    headers:{
+      'content-type':'application/json',
+      'Access-Control-Allow-Origin':'*', }})
+    .then(res => res.json())
+    .catch(err => {
+      console.error('Error:', err)
+      alert("Ocurrió un error, ver la consola")
+    })
+    .then(response =>{
+      console.log(response)
+      try{
+        topDoctores =   `<div class="row" id="table-borderless">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-header">
+              <h4 class="card-title">Fecha de creación: ${new Date().toLocaleDateString("es-US")}</h4>
+              <h3>Doctores con más citas atendidas</h3>
+            </div>
+            <div class="card-content">
+              <!-- table with no border -->
+              <div class="table-responsive">
+                <table class="table table-borderless mb-0">
+                  <thead>
+                    <tr>
+                      <th>No</th>
+                      <th>NOMBRE</th>
+                      <th>CITAS ATENDIDAS</th>
+                      
+                    </tr>
+                  </thead>
+                  <tbody>`
+                  for (var j = 0; j < 3; j++){
+                    topDoctores +=
+                     `
+                    <tr><td class="text-bold-500">${index}</td>
+                    <td class="text-bold-500">${response[j].Nombre}</td>
+                    <td class="text-bold-500">${response[j].Citas}</td>
+                    </tr>
+                    `
+                    index++
+                  }
+                  topDoctores += `</tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>`
+      imprimirTopDoctores(topDoctores)
+      } catch {
+        index = 1
+        topDoctores =   `<div class="row" id="table-borderless">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-header">
+              <h4 class="card-title">Fecha de creación: ${new Date().toLocaleDateString("es-US")}</h4>
+              <h3>Doctores con más citas atendidas</h3>
+            </div>
+            <div class="card-content">
+              <!-- table with no border -->
+              <div class="table-responsive">
+                <table class="table table-borderless mb-0">
+                  <thead>
+                    <tr>
+                      <th>No</th>
+                      <th>NOMBRE</th>
+                      <th>CITAS ATENDIDAS</th>
+                      
+                    </tr>
+                  </thead>
+                  <tbody>`
+                  for (var j in response){
+                    topDoctores +=
+                     `
+                    <tr><td class="text-bold-500">${index}</td>
+                    <td class="text-bold-500">${response[j].Nombre}</td>
+                    <td class="text-bold-500">${response[j].Citas}</td>
+                    </tr>
+                    `
+                    index++
+                  }
+                  topDoctores += `</tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>`
+      imprimirTopDoctores(topDoctores)
+      }
+    })
+}
+
+function imprimirTopDoctores(texto){
+  html2pdf().from(texto).toPdf().save("top_doctores.pdf")
 }
 
