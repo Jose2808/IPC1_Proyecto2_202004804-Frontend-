@@ -224,7 +224,7 @@ function reporteDoctores(){
 
 function topMedicos(){
   var index = 1
-  fetch(`http://localhost:3000/top-doctores`,{
+  fetch(`https://backend-ipc1-202004804.herokuapp.com/top-doctores`,{
     method: 'GET',
     headers:{
       'content-type':'application/json',
