@@ -203,10 +203,6 @@ function generarFactura(){
                       <input type="text" class="form-control" name="contact" value = ${total}>
                       </div>
                   </div>
-                  <div class="col-12 d-flex justify-content-end">
-                      <button type="generarFactura" class="btn btn-primary mr-1 mb-1">Generar Factura</button>
-                      <button type="reset" class="btn btn-light-secondary mr-1 mb-1">Cancelar</button>
-                  </div>
                   </div>
               </div>
               </form>
