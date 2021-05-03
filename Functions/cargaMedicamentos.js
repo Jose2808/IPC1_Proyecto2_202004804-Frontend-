@@ -1,4 +1,5 @@
 var listadoMedicamentos = ""
+var topMedicinas =""
 function obtenerMedicamentos(){
     var index = 1
     var tabla = document.getElementById('listaMedicamentos')
@@ -167,4 +168,110 @@ function procesarMedicamentos(texto){
 
 function reporteMedicamentos(){
   html2pdf().from(listadoMedicamentos).toPdf().save("reporte_medicamentos.pdf")
+}
+
+function topMedicamentos(){
+  var index = 1
+  fetch(`https://backend-ipc1-202004804.herokuapp.com/top-5-medicamentos`,{
+    method: 'GET',
+    headers:{
+      'content-type':'application/json',
+      'Access-Control-Allow-Origin':'*', }})
+    .then(res => res.json())
+    .catch(err => {
+      console.error('Error:', err)
+      alert("Ocurrió un error, ver la consola")
+    })
+    .then(response =>{
+        console.log(response)
+        try{
+          topMedicinas =   `<div class="row" id="table-borderless">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <h4 class="card-title">Fecha de creación: ${new Date().toLocaleDateString("es-US")}</h4>
+                <h3>Top 5 medicamentos más vendidos</h3>
+              </div>
+              <div class="card-content">
+                <!-- table with no border -->
+                <div class="table-responsive">
+                  <table class="table table-borderless mb-0">
+                    <thead>
+                      <tr>
+                        <th>No</th>
+                        <th>ID</th>
+                        <th>NOMBRE</th>
+                        <th>UNIDADES VENDIDAS</th>
+                        
+                      </tr>
+                    </thead>
+                    <tbody>`
+                    for (var j = 0; j < 5; j++){
+                      topMedicinas +=
+                       `
+                      <tr><td class="text-bold-500">${index}</td>
+                      <td class="text-bold-500">${response[j].id}</td>
+                      <td class="text-bold-500">${response[j].medicamento}</td>
+                      <td class="text-bold-500">${response[j].cantidad}</td>
+                      </tr>
+                      `
+                      index++
+                    }
+                    topMedicinas += `</tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>`
+        imprimirTop(topMedicinas)
+        } catch {
+          index = 1
+          topMedicinas =   `<div class="row" id="table-borderless">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <h4 class="card-title">Fecha de creación: ${new Date().toLocaleDateString("es-US")}</h4>
+                <h3>Top 5 medicamentos más vendidos</h3>
+              </div>
+              <div class="card-content">
+                <!-- table with no border -->
+                <div class="table-responsive">
+                  <table class="table table-borderless mb-0">
+                    <thead>
+                      <tr>
+                        <th>No</th>
+                        <th>ID</th>
+                        <th>NOMBRE</th>
+                        <th>UNIDADES VENDIDAS</th>
+                        
+                      </tr>
+                    </thead>
+                    <tbody>`
+                    for (var j in response){
+                      topMedicinas +=
+                       `
+                      <tr><td class="text-bold-500">${index}</td>
+                      <td class="text-bold-500">${response[j].id}</td>
+                      <td class="text-bold-500">${response[j].medicamento}</td>
+                      <td class="text-bold-500">${response[j].cantidad}</td>
+                      </tr>
+                      `
+                      index++
+                    }
+                    topMedicinas += `</tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>`
+        imprimirTop(topMedicinas)
+        }
+     })
+
+}
+
+function imprimirTop(texto){
+  html2pdf().from(texto).toPdf().save("top_medicamentos.pdf")
 }
