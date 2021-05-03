@@ -153,3 +153,69 @@ function doctoresFactura(){
   })
 
 }
+
+function generarFactura(){
+  let paciente = document.getElementById('patient').value
+  let doctor = document.getElementById('doctorSelect').value
+  let price = document.getElementById('operationPrice').value
+  let consultPrice = document.getElementById('consultPrice').value
+  let total = parseFloat(price) + parseFloat(consultPrice)
+
+  documentoFactura = ` <section id="basic-vertical-layouts">
+  <div class="row match-height">
+      <div class="col-md-6 col-12">
+      <div class="card">
+          <div class="card-content">
+          <div class="card-body">
+              <form class="form form-vertical">
+              <div class="form-body">
+                  <div class="row">
+                  <div class="col-12">
+                  <h4 class="card-title">Fecha de creación: ${new Date().toLocaleDateString("es-US")}</h4>
+                  </div>
+                  <div class="col-12">
+                      <div class="form-group">
+                      <label for="first-name-vertical">Paciente</label>
+                      <input type="text" class="form-control" name="fname" value = ${paciente}>
+                      </div>
+                  </div>
+                  <div class="col-12">
+                      <div class="form-group">
+                      <label for="email-id-vertical">Doctor</label>
+                      <input type="text" class="form-control" name="contact" value = ${doctor}>
+                      </select>
+                  </div>
+                  <div class="col-12">
+                      <div class="form-group">
+                      <label for="contact-info-vertical">Precio de la consulta</label>
+                      <input type="text" class="form-control" name="contact" value = ${consultPrice}>
+                      </div>
+                  </div>
+                  <div class="col-12">
+                      <div class="form-group">
+                      <label for="password-vertical">Costo de operación</label>
+                      <input type="text" class="form-control" name="contact" value = ${price}>
+                      </div>
+                  </div>
+                  <div class="col-12">
+                      <div class="form-group">
+                      <label for="password-vertical">Total</label>
+                      <input type="text" class="form-control" name="contact" value = ${total}>
+                      </div>
+                  </div>
+                  <div class="col-12 d-flex justify-content-end">
+                      <button type="generarFactura" class="btn btn-primary mr-1 mb-1">Generar Factura</button>
+                      <button type="reset" class="btn btn-light-secondary mr-1 mb-1">Cancelar</button>
+                  </div>
+                  </div>
+              </div>
+              </form>
+          </div>
+          </div>
+      </div>
+      </div>`
+  imprimirFactura(documentoFactura)
+}
+function imprimirFactura(text){
+html2pdf().from(text).toPdf().save("factura.pdf");
+}

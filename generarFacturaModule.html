@@ -202,9 +202,6 @@
         <div class="row match-height">
             <div class="col-md-6 col-12">
             <div class="card">
-                <div class="card-header">
-                <h4 class="card-title">Vertical Form</h4>
-                </div>
                 <div class="card-content">
                 <div class="card-body">
                     <form class="form form-vertical">
@@ -213,14 +210,14 @@
                         <div class="col-12">
                             <div class="form-group">
                             <label for="first-name-vertical">Fecha</label>
-                            <input type="date" id="first-name-vertical" class="form-control" name="fname"
+                            <input type="date" id="fecha" class="form-control" name="fname"
                                 required = "required">
                             </div>
                         </div>
                         <div class="col-12">
                             <div class="form-group">
                             <label for="first-name-vertical">Paciente</label>
-                            <input type="text" id="first-name-vertical" class="form-control" name="fname"
+                            <input type="text" id="patient" class="form-control" name="fname"
                                 placeholder="Nombre del paciente" required = "required">
                             </div>
                         </div>
@@ -228,9 +225,6 @@
                             <div class="form-group">
                             <label for="email-id-vertical">Doctor</label>
                             <select class="form-select" id="doctorSelect" required = "required">
-                                <option>IT</option>
-                                <option>Blade Runner</option>
-                                <option>Thor Ragnarok</option>
                             </select>
                         </div>
                         <div class="col-12">
@@ -247,15 +241,8 @@
                             placeholder="Costo de operación">
                             </div>
                         </div>
-                        <div class="col-12">
-                            <div class="form-group">
-                            <label for="password-vertical">Total</label>
-                            <input type="text" id="Total" class="form-control" name="contact"
-                            placeholder="Costo de operación">
-                            </div>
-                        </div>
                         <div class="col-12 d-flex justify-content-end">
-                            <button type="submit" class="btn btn-primary mr-1 mb-1">Generar Factura</button>
+                            <button type="submit" class="btn btn-primary mr-1 mb-1" onclick = "generarFactura()">Generar Factura</button>
                             <button type="reset" class="btn btn-light-secondary mr-1 mb-1">Cancelar</button>
                         </div>
                         </div>
