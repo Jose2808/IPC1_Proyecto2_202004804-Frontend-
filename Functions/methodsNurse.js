@@ -161,6 +161,31 @@ function generarFactura(){
   let consultPrice = document.getElementById('consultPrice').value
   let total = parseFloat(price) + parseFloat(consultPrice)
 
+  var objeto = {
+    date: new Date().toLocaleDateString("es-US"),
+    patient: paciente,
+    doctor: doctor,
+    consultPrice: consultPrice,
+    operationPrice: operationPrice,
+    total: total
+  }
+  
+  fetch("http://localhost:3000/generar-factura",{
+  method: 'POST',
+  body: JSON.stringify(objeto),
+  headers:{
+    'content-type':'application/json',
+    'Access-Control-Allow-Origin':'*',  }})
+  .then(res => res.json())
+  .catch(err => {
+    console.error('Error', err)
+    alert("Ocurrió un error, ver la consola")
+  })
+  .then(response => {
+    console.log(response)
+    alert(response.Mensaje)
+  })
+
   documentoFactura = ` <section id="basic-vertical-layouts">
   <div class="row match-height">
       <div class="col-md-6 col-12">
@@ -172,6 +197,7 @@ function generarFactura(){
                   <div class="row">
                   <div class="col-12">
                   <h4 class="card-title">Fecha de creación: ${new Date().toLocaleDateString("es-US")}</h4>
+                  <h3>Factura</h3>
                   </div>
                   <div class="col-12">
                       <div class="form-group">
