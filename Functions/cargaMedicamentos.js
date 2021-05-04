@@ -22,7 +22,7 @@ function obtenerMedicamentos(){
         `<tr>
         <td class="text-bold-500">${response[i].name}</td>
         <td>${response[i].description}</td>
-        <td><button value = "${response[i].name}" type="button" data-toggle="modal" data-target="#inlineForm"  onclick = "buscarMedicamento(this)" class="btn btn-outline-primary"> Ver detalles </button> </td>
+        <td><button id = "${response[i].id}" value = "${response[i].name}" type="button" data-toggle="modal" data-target="#inlineForm"  onclick = "buscarMedicamento(this)" class="btn btn-outline-primary"> Ver detalles </button> </td>
         <td><button value = "${response[i].name}" type = "button" onclick = "eliminarMedicamento(this)" class="btn btn-outline-primary"> Eliminar </button> </td>
       </tr>`
       }
@@ -71,8 +71,44 @@ function obtenerMedicamentos(){
     })
 }
 
+
+function modMedicamento(button){
+  idmedicamento = button.value
+  nombre = document.getElementById('see-name').value
+  description = document.getElementById('see-description').value
+  precio = document.getElementById('see-price').value
+  cantidad = document.getElementById('see-amount').value
+
+  objeto = {
+    idMedicina: idmedicamento,
+    nombre: nombre,
+    descripcion: description,
+    precio: precio,
+    cantidad: cantidad
+  }
+
+
+  fetch("https://backend-ipc1-202004804.herokuapp.com/Medicamentos/Modificar", {
+      method: 'POST',
+      body: JSON.stringify(objeto),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+    .then(res => res.json())
+    .catch(err => {
+      console.error('Error:', err)
+      alert("Ocurrió un error, ver la consola")
+    })
+    .then(response =>{
+      console.log(response.Mensaje)
+    })
+    window.obtenerMedicamentos()
+
+}
+
 function buscarMedicamento(button){
-    document.getElementById('modificarMedicamento').value = button.value
+    document.getElementById('modificarMedicamento').value = button.id
     var medicamento = button.value
     fetch(`https://backend-ipc1-202004804.herokuapp.com/Medicamentos/${medicamento}`,{
     method: 'GET',
@@ -110,6 +146,10 @@ function buscarMedicamento(button){
         })
         window.obtenerMedicamentos()
 }
+
+
+
+
 
 function cargaMedicamentos(){
   let archivoMedicamentos = document.getElementById('file-drugs').files[0];
