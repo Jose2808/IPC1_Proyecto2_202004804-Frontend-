@@ -175,7 +175,7 @@ function obtenerMedicamentos(){
       <td class="text-bold-500">${response[i].name}</td>
       <td>${response[i].description}</td>
       <td class="text-bold-500">${response[i].price}</td>
-      <td><input type="number" id= ${response[i].name} class="form-control" name="contact"
+      <td><input type="number" id= "${response[i].name}" class="form-control" name="contact"
       placeholder="Cantidad"></td>
       <td><button value = "${response[i].name}" type="button" onclick = "comprarMedicina(this)"  class="btn btn-outline-primary"> Agregar </button> </td>
     </tr>`
